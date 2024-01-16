@@ -3,11 +3,11 @@
 Please ensure you follow all the steps before submitting it for review.
 
 # Trial tasks
-Our trial is straightforward and simple. Please form this repository and build the following app in that repository. When you are done, create a pull request with the merge request.
+Our trial is straightforward and simple. Please fork this repository and build the following app in the forked repository. When you are done, create a pull targeting our `truflation/trial` repo.
 
 ## App hard requirements:
-1. get data [Lithium data](https://finance.yahoo.com/quote/LITH-USD/) feed from Y on Lithium
-2. push data into the database of your choice hosted by a third party, where the schema has the following attributes `id, date_value, value, created_at`
+1. get a Lithium data feed from [Yahoo.com](https://finance.yahoo.com/quote/LITH-USD/)
+2. push the data into any database of your choice hosted by a third party, where the schema has the following attributes `id, date_value, value, created_at`
 3. expose https endpoint with a simple JSON feed from the database to demo the app
 
 ## Review Score Criteria

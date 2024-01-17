@@ -16,4 +16,5 @@ Our trial is straightforward and simple. Please fork this repository and build t
 3. clear communication with our team
 
 ## Questions? 
-If you have any questions, please feel free to ask them in [truflation/trial/discussions]([url](https://github.com/truflation/trial/discussions)https://github.com/truflation/trial/discussions)
+If you have any questions, please feel free to ask them in [truflation/trial/discussions](https://github.com/truflation/trial/discussions)  
+DO NOT ask your question by any other channel.

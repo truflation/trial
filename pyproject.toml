@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "sandeep-trial"
+version = "0.1.0"
+description = "Truflation tech test"
+authors = ["Sandeep Nuthalapati <deepsudha@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.scripts]
+ticker = "sandeep_trial.index:main"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+yfinance = "^0.2.35"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

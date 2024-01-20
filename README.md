@@ -18,3 +18,21 @@ Our trial is straightforward and simple. Please fork this repository and build t
 ## Questions? 
 If you have any questions, please feel free to ask them in [truflation/trial/discussions](https://github.com/truflation/trial/discussions)  
 DO NOT ask your question by any other channel.
+
+## Setup
+1. Install [Poetry](https://python-poetry.org/docs/#installation). Poetry is a package management tool.
+2. Create and activate a virtual environment.
+3. Run the following line to install all necessary packages:
+
+    ```bash
+    poetry install
+    ```
+4. Run the following command to start the API server:
+    ```bash
+    poetry run start
+    ```
+    This will not only start the server, but also setup the SQLite database and it's tables.
+5. Go to browser and type the following:
+    `127.0.0.1/feed`
+    This will get the yahoo feed and store into the database.
+6. To view the data from the database, go to `127.0.0.1`

@@ -16,6 +16,14 @@ sqlmodel = "^0.0.14"
 uvicorn = {extras = ["standard"], version = "^0.26.0"}
 
 
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.1.14"
+
+[tool.ruff.lint.isort]
+lines-after-imports = 1
+lines-between-types = 1
+
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

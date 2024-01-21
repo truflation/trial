@@ -12,6 +12,8 @@ sqlalchemy = "^2.0.25"
 uvicorn = "^0.26.0"
 yfinance = "^0.2.35"
 
+[tool.poetry.scripts]
+start = "truflation_trial.main:start"
 
 [build-system]
 requires = ["poetry-core"]

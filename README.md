@@ -20,6 +20,8 @@ If you have any questions, please feel free to ask them in [truflation/trial/dis
 DO NOT ask your question by any other channel.
 
 ## Setup
+**NOTE:** Need Python 3.10 or later.
+
 1. Install [Poetry](https://python-poetry.org/docs/#installation). Poetry is a package management tool.
 2. Create and activate a virtual environment.
 3. Run the following line to install all necessary packages:

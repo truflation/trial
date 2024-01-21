@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "sandeep-trial"
+version = "0.1.0"
+description = "Truflation tech test"
+authors = ["Sandeep Nuthalapati <deepsudha@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.scripts]
+start = "sandeep_trial.index:start"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+yfinance = "^0.2.35"
+fastapi = "^0.109.0"
+sqlmodel = "^0.0.14"
+uvicorn = {extras = ["standard"], version = "^0.26.0"}
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.1.14"
+
+[tool.ruff.lint.isort]
+lines-after-imports = 1
+lines-between-types = 1
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

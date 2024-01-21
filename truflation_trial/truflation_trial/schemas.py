@@ -1,3 +1,5 @@
+# This file contains SQLAlchemy model classes that define the structure of database tables
+
 from sqlalchemy import Boolean, Column, Date, ForeignKey, Integer, String, Numeric
 from sqlalchemy.orm import relationship
 from database import Base

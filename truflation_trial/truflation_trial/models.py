@@ -1,4 +1,7 @@
-from pydantic import BaseModel
+# This file contains Pydantic models, which are used for defining the structure of data for API requests and responses.
+
+
+from pydantic import BaseModel # For defining the structure of data for API requests and responses
 from datetime import date
 
 # from typing import Sequence, List

@@ -1,20 +1,22 @@
-# from fastapi import (
-#     APIRouter,
-#     BackgroundTasks,
-#     Depends,
-#     FastAPI,
-# )
-# from fastapi.middleware.cors import CORSMiddleware
-# import sqlalchemy
-# from sqlalchemy.orm import Session
+import uvicorn
+from fastapi import (
+    APIRouter,
+    BackgroundTasks,
+    Depends,
+    FastAPI,
+)
+from fastapi.middleware.cors import CORSMiddleware
+import sqlalchemy
+from sqlalchemy.orm import Session
 import yfinance as yf
 import pandas as pd
 from datetime import datetime
+
 # from typing import List
 
 from database import Base, engine, get_db, SessionLocal
 from schemas import HistorySchema
-# from models import History
+from models import History
 
 def add_Feed():
     db = SessionLocal()
@@ -39,7 +41,40 @@ def add_Feed():
     db.commit()
     db.close()
 
+app = FastAPI()
+router = APIRouter()
 Base.metadata.create_all(bind=engine)
 
-if __name__ == '__main__': 
-    add_Feed()
+
+origins = [
+    "http://localhost:3000",
+    "localhost:3000"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
+
+@router.get("/feed", status_code=200, response_model=list[History])
+async def fetch_symbol():
+    """
+    Lithium Feed
+    """
+    db = SessionLocal()
+    historyFeed = db.query(HistorySchema).all()
+    res = [{"id": h.id, "date_value": h.date_value , "value":h.value , "created_at":h.created_at} for h in historyFeed]
+    
+    return res
+
+def start():
+    uvicorn.run("truflation_trial.main:app", host="127.0.0.1", port=8000, reload=True)
+
+app.include_router(router)
+
+# if __name__ == '__main__': 
+#     add_Feed()
+#     fetch_symbol()

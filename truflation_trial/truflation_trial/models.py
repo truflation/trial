@@ -21,5 +21,8 @@ from datetime import date
 
 
 class History(BaseModel):
-    date: date
-    price: float
+    id : int
+    created_at : date
+    date_value : date
+    value : float
+    

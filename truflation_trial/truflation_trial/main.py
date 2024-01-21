@@ -18,7 +18,7 @@ from database import Base, engine, get_db, SessionLocal
 from schemas import HistorySchema
 from models import History
 
-def add_Feed():
+def add_lithium_feed() : 
     db = SessionLocal()
     ticker = yf.Ticker("LITH-USD")
     h = ticker.history()
@@ -37,15 +37,14 @@ def add_Feed():
         # Add the instance to the database session
         db.add(history_schema)
 
-    # Commit changes to the database
-    db.commit()
-    db.close()
+        # Commit changes to the database
+        db.commit()
 
 app = FastAPI()
 router = APIRouter()
 Base.metadata.create_all(bind=engine)
 
-
+# Configuration for Frontend
 origins = [
     "http://localhost:3000",
     "localhost:3000"
@@ -59,6 +58,14 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
+@router.post("/add_feed")
+async def add_Feed(
+    background_tasks: BackgroundTasks,
+):
+    background_tasks.add_task(add_lithium_feed)
+    res = "sucessfull added"
+    return {"code" : res}
+    
 @router.get("/feed", status_code=200, response_model=list[History])
 async def fetch_symbol():
     """
@@ -74,7 +81,3 @@ def start():
     uvicorn.run("truflation_trial.main:app", host="127.0.0.1", port=8000, reload=True)
 
 app.include_router(router)
-
-# if __name__ == '__main__': 
-#     add_Feed()
-#     fetch_symbol()

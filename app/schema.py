@@ -12,9 +12,3 @@ class ClosePriceBase(BaseModel):
 
     class Config:
         orm_mode = True
-
-
-class ListClosePriceResponse(BaseModel):
-    status: str
-    results: int
-    notes: List[ClosePriceBase]
